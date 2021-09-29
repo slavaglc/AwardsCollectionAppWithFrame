@@ -20,6 +20,7 @@ struct AwardsView: View {
             CustomGridView(items: activeAwards, columns: 2) { cellSize, award in
                 VStack {
                     award.awardView
+                        .frame(width: cellSize, height: cellSize)
                     Text(award.title)
                 }
                 .padding()
@@ -29,32 +30,6 @@ struct AwardsView: View {
         }
     }
 }
-
-//struct AwardsView: View {
-//    let awards = Award.getAwards()
-//    let columns = [GridItem(.adaptive(minimum: 160, maximum: 200))]
-//
-//    var activeAwards: [Award] {
-//        awards.filter { $0.awarded }
-//    }
-//
-//    var body: some View {
-//        NavigationView {
-//            ScrollView {
-//                LazyVGrid(columns: columns) {
-//                    ForEach(activeAwards, id: \.title) { award in
-//                        VStack {
-//                            award.awardView
-//                            Text(award.title)
-//                        }
-//                    }
-//                }
-//                .navigationBarTitle("Shapes")
-//            }
-//        }
-//    }
-//}
-
 
 @available(iOS 15.0, *)
 struct ShapesView_Previews: PreviewProvider {

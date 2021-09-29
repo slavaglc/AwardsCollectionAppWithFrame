@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct CustomGridView<Content: View, T>: View {
+    
     let items: [T]
     let columns: Int
     let content: (Double, T) -> Content
@@ -21,6 +22,7 @@ struct CustomGridView<Content: View, T>: View {
        GeometryReader { geometry in
            let sideSize = geometry.size.width / CGFloat(columns)
            
+           
             ScrollView {
                 VStack {
                     ForEach(0...rows, id: \.self) { rowIndex in
@@ -28,6 +30,7 @@ struct CustomGridView<Content: View, T>: View {
                             ForEach(0..<columns) { columnIndex in
                                 if let index = indexFor(row: rowIndex, column: columnIndex) {
                                     content(sideSize, items[index])
+                                  
                                 } else {
                                     Spacer()
                                 }
@@ -38,6 +41,8 @@ struct CustomGridView<Content: View, T>: View {
             }
         }
     }
+    
+    
     private func indexFor(row: Int, column: Int) -> Int? {
         let index = row * columns + column
         return index < items.count ? index : nil

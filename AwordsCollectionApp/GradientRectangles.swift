@@ -43,6 +43,6 @@ struct GradientRectangles: View {
 
 struct GradientRectangles_Previews: PreviewProvider {
     static var previews: some View {
-        GradientRectangles(width: 200, height: 200)
+        GradientRectangles(width: 160, height: 160)
     }
 }

@@ -29,7 +29,7 @@ struct ContentView: View {
             Spacer()
             
             if showAword {
-                GradientRectangles(width: 250, height: 250)
+                GradientRectangles(width: 160, height: 160)
                     .animation(.default)
                     .transition(.transition)
             }
